@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obrigado</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    
+        function loadFormData() {
+            const formData = JSON.parse(localStorage.getItem('formData'));
+            if (formData) {
+                window.dataLayer.push({
+                    'event': 'generate_lead',
+                    'formData': formData,
+                    'pageCategory': 'ThankYouPage',
+                    'visitorType': 'high-value',
+                    'currency': 'BRL'
+                });
+                // Limpar o formData do localStorage após o uso
+                localStorage.removeItem('formData');
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', loadFormData);
+    </script>
+    
     <!-- Data Layer e Google Tag Manager -->
     <script>
         window.dataLayer = window.dataLayer || [];

@@ -228,3 +228,27 @@ img {
 .elementor-widget-container {
   animation: float 3s ease-in-out infinite; /* Apply the float animation continuously */
 }
+footer {
+  background-color: #222222;  /* Fundo escuro para o rodapé */
+  color: white;               /* Texto branco para contraste */
+  padding: 20px;              /* Espaço interno para separação */
+  text-align: center;         /* Texto centralizado no rodapé */
+}
+
+footer h2 {
+  margin-bottom: 20px;        /* Espaço abaixo do título do rodapé */
+}
+
+footer a {
+  color: white;               /* Links em branco para visibilidade */
+  text-decoration: none;      /* Remove o sublinhado dos links */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+footer img {
+  vertical-align: middle;     /* Alinha o ícone verticalmente com o texto */
+  margin-right: 10px;         /* Espaço à direita do ícone para separação do texto */
+}

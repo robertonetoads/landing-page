@@ -215,8 +215,6 @@ img {
       padding: 5px; /* Reduz o padding para maior área de visualização */
   }
 }
-
-  }
   
   .text-content, .media-content {
     width: 100%;
@@ -234,7 +232,6 @@ img {
   .cta-button {
     width: auto; /* Permite ajuste automático na tela menor */
   }
-}
 
 footer {
   background-color: #222222;

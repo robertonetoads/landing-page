@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obrigado</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Data Layer -->
+    <!-- Data Layer e Google Tag Manager -->
     <script>
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': 'generate_lead',
-            'pageCategory': 'ThankYouPage',
-            'visitorType': 'high-value',
-            'currency': 'BRL'
-        });
+        function loadFormData() {
+            const formData = JSON.parse(localStorage.getItem('formData'));
+            if (formData) {
+                window.dataLayer.push({
+                    'event': 'generate_lead',
+                    'formData': formData,
+                    'pageCategory': 'ThankYouPage',
+                    'visitorType': 'high-value',
+                    'currency': 'BRL'
+                });
+                // Limpar o formData do localStorage após o uso
+                localStorage.removeItem('formData');
+            }
+        }
     </script>
-    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -23,7 +30,7 @@
     })(window,document,'script','dataLayer','GTM-NP6KX8C2');</script>
     <!-- End Google Tag Manager -->
 </head>
-<body>
+<body onload="loadFormData()">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NP6KX8C2"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

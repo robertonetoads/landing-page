@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
         // Envia os dados para o dataLayer
         window.dataLayer.push({
-            'event': 'formSubmit',
+            'event': 'generate_lead',
             'formData': formEntries
         });
   

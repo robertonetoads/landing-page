@@ -1,15 +1,22 @@
 /* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Certifique-se de que o conteúdo está centralizado horizontalmente */
+  height: 18vh; /* Ajusta a altura para ocupar toda a tela visível */
+  text-align: center; /* Centraliza o texto horizontalmente */
+  padding: 20px;
 }
 
 body, html {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
-  font-size: 18px; /* Define a base do tamanho da fonte */
+  font-size: 16px; /* Define a base do tamanho da fonte */
+  height: 100%;
+  overflow-x: hidden; /* Previne rolagem horizontal */
 }
 
 header {
@@ -19,108 +26,88 @@ header {
   text-align: center;
 }
 
-section {
-  padding: 40px 20px;
+.section-header {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #123456;
 }
 
 .section-background-blue {
   background-color: #e7f3fe;
+  padding: 20px;
 }
 
 .section-background-purple {
   background-color: #f0e6ff;
-}
-
-footer {
-  background-color: #222222;
-  color: white;
   padding: 20px;
-  text-align: center;
 }
 
-.cta-button-pulsating {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 15px 30px; /* Aumenta o tamanho dos botões */
-  font-size: 1.125rem; /* Aumenta o tamanho do texto dos botões */
-  cursor: pointer;
-  margin-top: 20px;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(1.05);
-      opacity: 0.7;
-  }
-  100% {
-      transform: scale(1);
-      opacity: 1;
-  }
+.media-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .media {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
-.media.right .media-content {
-  flex-direction: row;
-}
-
-.media.left .media-content {
-  flex-direction: row-reverse;
-}
-
-.media-content {
-  display: flex;
+.text-header, .text-body, .media-content {
   width: 100%;
-  justify-content: space-around;
-  align-items: center;
+  text-align: center;
 }
 
-img, iframe {
-  max-width: 50%;
-  height: auto;
+@media (min-width: 768px) {
+  .media {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .text-header, .text-body, .media-content {
+    flex: 1;
+    text-align: center;
+  }
 }
 
-footer a {
+.cta-button {
+  background-color: #4CAF50; /* Cor do botão */
   color: white;
-  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block; /* Faz o botão ocupar a linha inteira */
+  width: 200px; /* Largura específica para o botão */
+  margin: 10px auto; /* Centraliza o botão horizontalmente */
 }
 
-footer a:hover {
-  text-decoration: underline;
-}
-
-footer img {
-  vertical-align: middle;
+button:hover {
+  background-color: #45a049; /* Escurece o botão ao passar o mouse */
 }
 
 .popup {
   display: none;
   position: fixed;
-  top: 0;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
+  align-items: center;
 }
 
 .popup-content {
   background: white;
-  padding: 30px;
+  padding: 30px; /* Certifique-se de que há espaço suficiente para o botão */
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
@@ -129,27 +116,20 @@ footer img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: relative; /* Importante para o posicionamento absoluto do botão de fechar */
 }
 
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+  right: 10px; /* Posiciona à direita dentro do popup */
+  top: 10px; /* Posiciona no topo do popup */
   font-size: 24px;
-  color: #333;
+  cursor: pointer;
+  color: #333; /* Define a cor do ícone do botão de fechar */
 }
 
 .close:hover {
   color: #000;
-}
-
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 form input[type="text"], form input[type="email"], form input[type="submit"] {
@@ -172,7 +152,6 @@ form input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-/* Classes para estilização de texto */
 .text-bold {
   font-weight: bold;
 }
@@ -181,7 +160,6 @@ form input[type="submit"]:hover {
   font-style: italic;
 }
 
-/* Classes para tamanhos de texto */
 .text-small {
   font-size: 0.875rem; /* Tamanho de texto pequeno */
 }
@@ -201,7 +179,6 @@ form input[type="submit"]:hover {
 .text-xxlarge {
   font-size: 2rem; /* Tamanho de texto extra extra grande */
 }
-
 
 .elementor-widget-wrap {
   display: flex;
@@ -235,19 +212,19 @@ img {
 
 @media (max-width: 768px) {
   .elementor-widget-wrap {
-      flex-direction: column;
+    flex-direction: column;
   }
 }
 
 @keyframes float {
   0% {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
   50% {
-      transform: translateY(-10px);
+    transform: translateY(-10px);
   }
   100% {
-      transform: translateY(0px);
+    transform: translateY(0px);
   }
 }
 

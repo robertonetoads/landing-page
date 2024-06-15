@@ -54,26 +54,23 @@ header {
 
 .media {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.text-header, .text-body, .media-content {
-  width: 100%;
-  text-align: center;
+.text-content, .media-content {
+  flex: 1;
+  padding: 10px;
 }
 
-@media (min-width: 768px) {
-  .media {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .text-header, .text-body, .media-content {
-    flex: 1;
-    text-align: center;
-  }
+.media:nth-child(even) .text-content {
+  order: 1; /* Muda a ordem visual para texto antes da mídia */
+}
+
+.media:nth-child(even) .media-content {
+  order: 2; /* Muda a ordem visual para mídia após o texto */
 }
 
 .cta-button {

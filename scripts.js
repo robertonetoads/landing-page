@@ -17,6 +17,20 @@ document.addEventListener("DOMContentLoaded", function() {
     var form = document.querySelector('#popupForm form');
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Impede o envio padrão do formulário
+        
+        // Captura os dados do formulário
+        var formData = new FormData(form);
+        var formEntries = {};
+        formData.forEach((value, key) => {
+            formEntries[key] = value;
+        });
+  
+        // Envia os dados para o dataLayer
+        window.dataLayer.push({
+            'event': 'formSubmit',
+            'formData': formEntries
+        });
+  
         window.location.href = 'obrigado.html'; // Redireciona para a nova página
     });
   });

@@ -1,6 +1,6 @@
 /* Reset básico */
 * {
-  box-sizing: border-box; /* Melhora a forma de calcular larguras e alturas */
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -8,15 +8,15 @@
 body, html {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
-  color: #333;
+  color: #333; /* Cor padrão do texto, alterada para cinza escuro */
   font-size: 16px;
   height: 100%;
   overflow-x: hidden;
 }
 
 header {
-  background-color: #123456;
-  color: white;
+  background-color: #000000; /* Cabeçalho com fundo preto */
+  color: white; /* Texto do cabeçalho em branco para contraste */
   padding: 20px;
   text-align: center;
 }
@@ -29,26 +29,24 @@ header {
   height: 18vh;
   text-align: center;
   padding: 20px;
+  color: #FFFFFF; /* Texto do herói em branco */
 }
 
 .section-header {
   text-align: center;
   margin-bottom: 20px;
+  color: #2C3E50; /* Cor do texto do título da seção */
 }
 
 .section-title {
   font-size: 2rem;
-  color: #123456;
+  color: #16A085; /* Cor específica para títulos das seções */
 }
 
-.section-background-blue {
-  background-color: #e7f3fe;
+.section-background-blue, .section-background-purple {
+  background-color: #e7f3fe; /* Fundos claros para contraste com o texto */
   padding: 20px;
-}
-
-.section-background-purple {
-  background-color: #f0e6ff;
-  padding: 20px;
+  color: #34495E; /* Cor do texto para seções com fundo claro */
 }
 
 .media-group {
@@ -68,19 +66,20 @@ header {
 .text-content, .media-content {
   flex: 1;
   padding: 10px;
+  color: #7F8C8D; /* Cor do texto para conteúdo dentro de mídia */
 }
 
 .media:nth-child(even) .text-content {
-  order: 1;
-}
-
-.media:nth-child(even) .media-content {
   order: 2;
 }
 
+.media:nth-child(even) .media-content {
+  order: 1;
+}
+
 .cta-button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #4CAF50; /* Botões em verde */
+  color: white; /* Texto do botão em branco */
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -88,10 +87,11 @@ header {
   display: block;
   width: 200px;
   margin: 10px auto;
+  animation: pulse 2s infinite; /* Animação para pulsar */
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Verde escuro ao passar o mouse */
 }
 
 .popup {
@@ -118,20 +118,21 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position:relative;
+  color: #2C3E50; /* Cor do texto no popup */
 }
 
 .close {
-  position: absolute;
+  position:absolute;
   right: 10px;
   top: 10px;
   font-size: 24px;
   cursor: pointer;
-  color: #333;
+  color: #333; /* Cor do ícone fechar */
 }
 
 .close:hover {
-  color: #000;
+  color: #000; /* Preto ao passar o mouse */
 }
 
 form input[type="text"], form input[type="email"], form input[type="submit"] {
@@ -140,6 +141,7 @@ form input[type="text"], form input[type="email"], form input[type="submit"] {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: #333; /* Cor do texto nos campos de formulário */
 }
 
 form input[type="submit"] {
@@ -165,16 +167,17 @@ form input[type="submit"]:hover {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #ff0f0f;
+  background-color: #000000; /* Cor de fundo do contêiner */
 }
 
 .elementor-element {
   margin: 10px;
-  flex: 1 1 200px;
+  flex: 1 1 auto; /* Permite que os elementos se ajustem melhor no espaço disponível */
   display: flex;
   justify-content: center;
   align-items: center;
   transition: transform 0.5s ease;
+  animation: float 5s infinite ease-in-out;
 }
 
 .elementor-widget-image {
@@ -183,28 +186,54 @@ form input[type="submit"]:hover {
 
 .elementor-widget-container {
   padding: 10px;
+  max-width: 90%; /* Limita a largura máxima para evitar sobreposição */
 }
 
 img {
-  width: 100%;
-  max-width: 180px;
+  width: 100%; /* Garante que a imagem preencha o contêiner */
+  max-width: 180px; /* Limita a largura máxima da imagem para evitar excesso em telas pequenas */
   height: auto;
 }
 
-@media (max-width: 768px) {
-  .elementor-widget-wrap {
-      flex-direction: column;
+@keyframes float {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
   }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+@media (max-width: 768px) {
+  .elementor-element {
+      flex-direction: column; /* Empilha os elementos verticalmente no mobile */
+  }
+  .elementor-widget-container {
+      max-width: 95%; /* Aumenta a largura máxima no mobile para melhor uso do espaço */
+  }
+  .elementor-widget-wrap {
+      padding: 5px; /* Reduz o padding para maior área de visualização */
+  }
 }
 
-.elementor-widget-container {
-  animation: float 3s ease-in-out infinite;
+  }
+  
+  .text-content, .media-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  #hero {
+    height: 100vh; /* Garante que o #hero ocupe a primeira tela inteira no mobile */
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    width: auto; /* Permite ajuste automático na tela menor */
+  }
 }
 
 footer {
@@ -230,4 +259,55 @@ footer a:hover {
 footer img {
   vertical-align: middle;
   margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+    .media { flex-direction: row; }
+    .media:nth-child(odd) .media-content { order: 2; }
+    .media:nth-child(odd) .text-content { order: 1; }
+}
+
+@media (max-width: 767px) {
+    .media { flex-direction: column; }
+    .media-content, .text-content { order: 1; width: 100%; text-align: center; }
+}
+.hero-mobile {
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+body, .section-background-blue, .section-background-purple {
+    background-color: #000; /* Dark background for contrast */
+}
+.cta-button, .button-pulse {
+    background-color: #4CAF50; /* Bright green for buttons */
+    font-size: 1.25rem;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0,255,0,0.5); /* Green shadow for emphasis */
+}
+header {
+  width: 100%; /* Ocupa toda a largura da página */
+  height: 150px; /* Altura fixa para o cabeçalho */
+  overflow: hidden; /* Impede que a imagem ultrapasse os limites do cabeçalho */
+  position: relative; /* Posicionamento relativo para alinhar a imagem */
+  display: flex;
+  align-items: center; /* Centraliza a imagem verticalmente */
+  justify-content: center; /* Centraliza a imagem horizontalmente */
+}
+
+
+.header-logo {
+  max-width: 100%; /* Limita a largura máxima da imagem */
+  max-height: 600%; /* Limita a altura máxima da imagem */
+  height: auto; /* Ajusta a altura automaticamente para manter a proporção */
 }

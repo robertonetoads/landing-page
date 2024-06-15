@@ -32,3 +32,16 @@ document.addEventListener("DOMContentLoaded", function() {
         this.value = digits.length === 2 ? '(' + digits + ') ' : '(' + digits.slice(0, 2) + ') ' + digits.slice(2);
     });
 });
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var formData = {
+        firstname: document.getElementById('fname').value,
+        lastname: document.getElementById('lname').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value
+    };
+
+    submitToFirebase(formData);
+});

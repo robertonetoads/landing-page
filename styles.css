@@ -294,7 +294,7 @@ body, .section-background-blue, .section-background-purple {
 }
 header {
   width: 100%; /* Ocupa toda a largura da página */
-  height: 150px; /* Altura fixa para o cabeçalho */
+  height: 180px; /* Altura fixa para o cabeçalho */
   overflow: hidden; /* Impede que a imagem ultrapasse os limites do cabeçalho */
   position: relative; /* Posicionamento relativo para alinhar a imagem */
   display: flex;
@@ -302,9 +302,15 @@ header {
   justify-content: center; /* Centraliza a imagem horizontalmente */
 }
 
-
 .header-logo {
   max-width: 100%; /* Limita a largura máxima da imagem */
-  max-height: 600%; /* Limita a altura máxima da imagem */
   height: auto; /* Ajusta a altura automaticamente para manter a proporção */
+  object-fit: contain; /* Ajusta a imagem para caber dentro do contêiner, mantendo a proporção */
+}
+
+@media (min-width: 768px) {
+  .header-logo {
+    width: auto; /* Ajusta a largura automaticamente para manter a proporção */
+    height: 650%; /* Define a altura para ocupar todo o cabeçalho */
+  }
 }

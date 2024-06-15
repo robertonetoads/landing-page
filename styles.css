@@ -1,0 +1,256 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  font-size: 18px; /* Define a base do tamanho da fonte */
+}
+
+header {
+  background-color: #123456;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-background-blue {
+  background-color: #e7f3fe;
+}
+
+.section-background-purple {
+  background-color: #f0e6ff;
+}
+
+footer {
+  background-color: #222222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.cta-button-pulsating {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px 30px; /* Aumenta o tamanho dos botões */
+  font-size: 1.125rem; /* Aumenta o tamanho do texto dos botões */
+  cursor: pointer;
+  margin-top: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+      opacity: 0.7;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+.media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.media.right .media-content {
+  flex-direction: row;
+}
+
+.media.left .media-content {
+  flex-direction: row-reverse;
+}
+
+.media-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+img, iframe {
+  max-width: 50%;
+  height: auto;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer img {
+  vertical-align: middle;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.close:hover {
+  color: #000;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input[type="text"], form input[type="email"], form input[type="submit"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Classes para estilização de texto */
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+/* Classes para tamanhos de texto */
+.text-small {
+  font-size: 0.875rem; /* Tamanho de texto pequeno */
+}
+
+.text-medium {
+  font-size: 1rem; /* Tamanho de texto médio */
+}
+
+.text-large {
+  font-size: 1.25rem; /* Tamanho de texto grande */
+}
+
+.text-xlarge {
+  font-size: 1.5rem; /* Tamanho de texto extra grande */
+}
+
+.text-xxlarge {
+  font-size: 2rem; /* Tamanho de texto extra extra grande */
+}
+
+
+.elementor-widget-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #ff0f0f; /* Define a light grey background color */
+}
+
+.elementor-element {
+  margin: 10px;
+  flex: 1 1 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.elementor-widget-image {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.elementor-widget-container {
+  padding: 10px;
+}
+
+img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .elementor-widget-wrap {
+      flex-direction: column;
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+  100% {
+      transform: translateY(0px);
+  }
+}
+
+.elementor-widget-container {
+  animation: float 3s ease-in-out infinite; /* Apply the float animation continuously */
+}

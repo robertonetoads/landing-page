@@ -1,22 +1,17 @@
 /* Reset básico */
-*
-#hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; /* Certifique-se de que o conteúdo está centralizado horizontalmente */
-  height: 18vh; /* Ajusta a altura para ocupar toda a tela visível */
-  text-align: center; /* Centraliza o texto horizontalmente */
-  padding: 20px;
+* {
+  box-sizing: border-box; /* Melhora a forma de calcular larguras e alturas */
+  margin: 0;
+  padding: 0;
 }
 
 body, html {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
-  font-size: 16px; /* Define a base do tamanho da fonte */
+  font-size: 16px;
   height: 100%;
-  overflow-x: hidden; /* Previne rolagem horizontal */
+  overflow-x: hidden;
 }
 
 header {
@@ -24,6 +19,16 @@ header {
   color: white;
   padding: 20px;
   text-align: center;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 18vh;
+  text-align: center;
+  padding: 20px;
 }
 
 .section-header {
@@ -55,8 +60,8 @@ header {
 .media {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -66,27 +71,27 @@ header {
 }
 
 .media:nth-child(even) .text-content {
-  order: 1; /* Muda a ordem visual para texto antes da mídia */
+  order: 1;
 }
 
 .media:nth-child(even) .media-content {
-  order: 2; /* Muda a ordem visual para mídia após o texto */
+  order: 2;
 }
 
 .cta-button {
-  background-color: #4CAF50; /* Cor do botão */
+  background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  display: block; /* Faz o botão ocupar a linha inteira */
-  width: 200px; /* Largura específica para o botão */
-  margin: 10px auto; /* Centraliza o botão horizontalmente */
+  display: block;
+  width: 200px;
+  margin: 10px auto;
 }
 
 button:hover {
-  background-color: #45a049; /* Escurece o botão ao passar o mouse */
+  background-color: #45a049;
 }
 
 .popup {
@@ -104,7 +109,7 @@ button:hover {
 
 .popup-content {
   background: white;
-  padding: 30px; /* Certifique-se de que há espaço suficiente para o botão */
+  padding: 30px;
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
@@ -113,16 +118,16 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative; /* Importante para o posicionamento absoluto do botão de fechar */
+  position: relative;
 }
 
 .close {
   position: absolute;
-  right: 10px; /* Posiciona à direita dentro do popup */
-  top: 10px; /* Posiciona no topo do popup */
+  right: 10px;
+  top: 10px;
   font-size: 24px;
   cursor: pointer;
-  color: #333; /* Define a cor do ícone do botão de fechar */
+  color: #333;
 }
 
 .close:hover {
@@ -133,7 +138,6 @@ form input[type="text"], form input[type="email"], form input[type="submit"] {
   width: 100%;
   padding: 12px 20px;
   margin-bottom: 15px;
-  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
@@ -149,39 +153,19 @@ form input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-.text-bold {
-  font-weight: bold;
-}
-
-.text-italic {
-  font-style: italic;
-}
-
-.text-small {
-  font-size: 0.875rem; /* Tamanho de texto pequeno */
-}
-
-.text-medium {
-  font-size: 1rem; /* Tamanho de texto médio */
-}
-
-.text-large {
-  font-size: 1.25rem; /* Tamanho de texto grande */
-}
-
-.text-xlarge {
-  font-size: 1.5rem; /* Tamanho de texto extra grande */
-}
-
-.text-xxlarge {
-  font-size: 2rem; /* Tamanho de texto extra extra grande */
-}
+.text-bold { font-weight: bold; }
+.text-italic { font-style: italic; }
+.text-small { font-size: 0.875rem; }
+.text-medium { font-size: 1rem; }
+.text-large { font-size: 1.25rem; }
+.text-xlarge { font-size: 1.5rem; }
+.text-xxlarge { font-size: 2rem; }
 
 .elementor-widget-wrap {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: #ff0f0f; /* Define a light grey background color */
+  background-color: #ff0f0f;
 }
 
 .elementor-element {
@@ -209,46 +193,41 @@ img {
 
 @media (max-width: 768px) {
   .elementor-widget-wrap {
-    flex-direction: column;
+      flex-direction: column;
   }
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 .elementor-widget-container {
-  animation: float 3s ease-in-out infinite; /* Apply the float animation continuously */
+  animation: float 3s ease-in-out infinite;
 }
+
 footer {
-  background-color: #222222;  /* Fundo escuro para o rodapé */
-  color: white;               /* Texto branco para contraste */
-  padding: 20px;              /* Espaço interno para separação */
-  text-align: center;         /* Texto centralizado no rodapé */
+  background-color: #222222;
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
 footer h2 {
-  margin-bottom: 20px;        /* Espaço abaixo do título do rodapé */
+  margin-bottom: 20px;
 }
 
 footer a {
-  color: white;               /* Links em branco para visibilidade */
-  text-decoration: none;      /* Remove o sublinhado dos links */
+  color: white;
+  text-decoration: none;
 }
 
 footer a:hover {
-  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+  text-decoration: underline;
 }
 
 footer img {
-  vertical-align: middle;     /* Alinha o ícone verticalmente com o texto */
-  margin-right: 10px;         /* Espaço à direita do ícone para separação do texto */
+  vertical-align: middle;
+  margin-right: 10px;
 }

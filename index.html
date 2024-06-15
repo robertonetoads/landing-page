@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page Exemplo</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <!-- Add Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
     <!-- Data Layer -->
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -24,6 +26,21 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-NP6KX8C2');</script>
     <!-- End Google Tag Manager -->
+    <script>
+      // Configuração do Firebase
+      var firebaseConfig = {
+  apiKey: "AIzaSyCuxt9EkMpO42ddoleYvrFnu2X2w0TEVZo",
+  authDomain: "landing-page-93ebb.firebaseapp.com",
+  projectId: "landing-page-93ebb",
+  storageBucket: "landing-page-93ebb.appspot.com",
+  messagingSenderId: "69937648102",
+  appId: "1:69937648102:web:24c75a4714688815278627"
+};
+
+      // Inicializa Firebase
+      firebase.initializeApp(firebaseConfig);
+      var db = firebase.firestore();
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -146,57 +163,27 @@
             </a>
         </p>
     </footer>
-    
-
     <!-- Popup Form -->
-    <div id="popupForm" class="popup">
-        <div class="popup-content">
-            <form id="contactForm">
-                <span class="close" onclick="closePopup()">&times;</span>
-                <label for="fname" class="text-large">Nome:</label>
-                <input type="text" id="fname" name="firstname" placeholder="Seu nome.." required>
+<div id="popupForm" class="popup" style="display: none;">
+    <div class="popup-content">
+        <span class="close">&times;</span>
+        <form>
+            <label for="fname">Nome:</label>
+            <input type="text" id="fname" name="firstname" placeholder="Seu nome.." required>
 
-                <label for="lname" class="text-large">Sobrenome:</label>
-                <input type="text" id="lname" name="lastname" placeholder="Seu sobrenome.." required>
+            <label for="lname">Sobrenome:</label>
+            <input type="text" id="lname" name="lastname" placeholder="Seu sobrenome.." required>
 
-                <label for="email" class="text-large">Seu melhor e-mail:</label>
-                <input type="email" id="email" name="email" placeholder="Seu melhor e-mail.." required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Seu melhor e-mail.." required>
 
-                <label for="phone" class="text-large">Telefone (DDD):</label>
-                <input type="text" id="phone" name="phone" placeholder="(DDD) Seu telefone.." required>
+            <label for="phone">Telefone:</label>
+            <input type="text" id="phone" name="phone" placeholder="(DDD) Seu telefone.." required>
 
-                <input type="submit" value="Enviar">
-            </form>
-        </div>
+            <input type="submit" value="Enviar">
+        </form>
     </div>
-
+</div>
     <script src="scripts.js"></script>
 </body>
 </html>
-
-<script>
-  // Configuração do Firebase
-  const firebaseConfig = {
-  apiKey: "AIzaSyCuxt9EkMpO42ddoleYvrFnu2X2w0TEVZo",
-  authDomain: "landing-page-93ebb.firebaseapp.com",
-  projectId: "landing-page-93ebb",
-  storageBucket: "landing-page-93ebb.appspot.com",
-  messagingSenderId: "69937648102",
-  appId: "1:69937648102:web:24c75a4714688815278627"
-};
-
-  // Inicializa Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore(app);
-
-  // Função para enviar dados para o Firestore
-  function submitToFirebase(data) {
-    db.collection("submissions").add(data)
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  }
-</script>
